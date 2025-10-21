@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.HashMap;
+
 public class Room {
     private int numberOfBeds;
     private double price;
@@ -11,48 +13,24 @@ public class Room {
         return numberOfBeds;
     }
 
-    public void setNumberOfBeds(int numberOfBeds) {
-        this.numberOfBeds = numberOfBeds;
-    }
-
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public boolean isOccupied() {
         return isOccupied;
     }
 
-    public void setOccupied(boolean occupied) {
-        isOccupied = occupied;
-    }
-
     public boolean isDirty() {
         return isDirty;
     }
 
-    public void setDirty(boolean dirty) {
-        isDirty = dirty;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
-
-    public Room(int numberOfBeds, double price, boolean isOccupied, boolean isDirty, boolean isAvailable) {
+    public Room(int numberOfBeds, double price) {
         this.numberOfBeds = numberOfBeds;
         this.price = price;
-        this.isOccupied = isOccupied;
-        this.isDirty = isDirty;
-        this.isAvailable = isAvailable;
+        this.isOccupied = false;
+        this.isDirty = false;
+
 
     }
 }
