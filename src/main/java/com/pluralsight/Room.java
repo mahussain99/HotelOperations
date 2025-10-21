@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import javax.sound.midi.Soundbank;
 import java.util.HashMap;
 
 public class Room {
@@ -7,7 +8,13 @@ public class Room {
     private double price;
     private boolean isOccupied;
     private boolean isDirty;
-    private boolean isAvailable;
+
+    public Room(int numberOfBeds, double price) {
+        this.numberOfBeds = numberOfBeds;
+        this.price = price;
+        this.isOccupied = false;
+        this.isDirty = false;
+    }
 
     public int getNumberOfBeds() {
         return numberOfBeds;
@@ -25,12 +32,36 @@ public class Room {
         return isDirty;
     }
 
-    public Room(int numberOfBeds, double price) {
-        this.numberOfBeds = numberOfBeds;
-        this.price = price;
-        this.isOccupied = false;
-        this.isDirty = false;
+    public boolean isAvailable() {
+        return !isOccupied && !isDirty;
+    }
+// Action here
+    public void checkIn(){
+    if ( !isOccupied && !isDirty) {
+        isOccupied = true;
+        isDirty = true;
+        System.out.println("Room is Check in");
+    }else{
+        System.out.println("Room can't be Check in ");
+    }
 
+    }
+    public void checkout(){
+        isOccupied = false;
+        isDirty = true;
+            System.out.println("Guest has checked out. The room is now dirty" + isDirty);
+        }
+
+    public void cleanroom(){
+
+        if (!isOccupied){
+            isDirty = false;
+            System.out.println("Clean the room before guest check in");
+        }
 
     }
 }
+
+
+
+
